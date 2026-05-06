@@ -1,0 +1,7 @@
+export * from "./profile.model"
+export * from "./project.model"
+export * from "./skills.model"
+export * from "./stats.model"
+export * from "./experience.model"
+export * from "./education.model"
+export * from "./contact.model"

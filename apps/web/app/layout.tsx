@@ -1,5 +1,11 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
+import ReduxProvider from "../redux/ReduxProvider";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/ReactToastify.css"
+import "bootstrap/dist/css/bootstrap.min.css"
+import "bootstrap-icons/font/bootstrap-icons.css"
+import Script from "next/script";
 import "./globals.css";
 
 const geistSans = localFont({
@@ -24,7 +30,15 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${geistSans.variable} ${geistMono.variable}`}>
-        {children}
+
+        <ToastContainer />
+        <ReduxProvider>
+          {/* <div>mode: {process.env.NEXT_PUBLIC_ENV}</div> */}
+          {children}
+        </ReduxProvider>
+
+        <Script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" />
+
       </body>
     </html>
   );

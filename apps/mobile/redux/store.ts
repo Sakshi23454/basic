@@ -1,0 +1,53 @@
+// import { configureStore } from "@reduxjs/toolkit";
+// import { authApi } from "./apis/auth.api";
+// import { adminApi } from "./apis/admin.api";
+// import { useSelector } from "react-redux";
+// import authSlice from "./slices/auth.slice"
+// import { userApi } from "./apis/user.api";
+
+// const reduxStore = configureStore({
+//     reducer: {
+//         [authApi.reducerPath]: authApi.reducer,
+//         [adminApi.reducerPath]: adminApi.reducer,
+//         [userApi.reducerPath]: userApi.reducer,
+//         auth: authSlice
+//     },
+//     // // production - false
+//     // devTools: process.env.NEXT_PUBLIC_ENV !== "production",
+//     middleware: def => def().concat(authApi.middleware, adminApi.middleware, userApi.middleware)
+// })
+
+// type RootType = ReturnType<typeof reduxStore.getState>
+// export const useAppSelector = useSelector.withTypes<RootType>()
+
+// export default reduxStore
+
+
+import { configureStore } from "@reduxjs/toolkit";
+import { authApi } from "./apis/auth.api";
+import { adminApi } from "./apis/admin.api";
+import { userApi } from "./apis/user.api";
+import { useSelector } from "react-redux";
+import authSlice from "./slices/auth.slice";
+
+const reduxStore = configureStore({
+  reducer: {
+    [authApi.reducerPath]: authApi.reducer,
+    [adminApi.reducerPath]: adminApi.reducer,
+    [userApi.reducerPath]: userApi.reducer,
+    auth: authSlice,
+  },
+  middleware: (def) =>
+    def().concat(authApi.middleware, adminApi.middleware, userApi.middleware),
+});
+
+// ✅ Root state type
+export type RootType = ReturnType<typeof reduxStore.getState>;
+
+// ✅ Typed selector hook
+export const useAppSelector = useSelector.withTypes<RootType>();
+
+// ✅ ADD THIS (important)
+export type AppDispatch = typeof reduxStore.dispatch;
+
+export default reduxStore;

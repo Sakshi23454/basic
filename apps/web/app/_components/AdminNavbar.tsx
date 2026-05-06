@@ -1,0 +1,60 @@
+"use client"
+import Link from 'next/link'
+import { useRouter } from 'next/navigation'
+import { toast } from 'react-toastify'
+import { useAppSelector } from '../../redux/store'
+import { useSignoutMutation } from '../../redux/apis/auth.api'
+
+const AdminNavbar = () => {
+    const { admin } = useAppSelector(state => state.auth)
+    const [logout] = useSignoutMutation()
+    const router = useRouter()
+
+    const handleLogout = async () => {
+        try {
+            await logout().unwrap()
+            toast.success("logout success")
+            router.push("/login")
+            router.refresh()
+        } catch (error) {
+            console.log(error)
+            toast.error("unable to logout")
+        }
+    }
+
+    return <>
+        <nav className="navbar navbar-expand-lg bg-primary navbar-dark">
+            <div className="container">
+                <a className="navbar-brand" href="#">Admin Panel</a>
+                <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup">
+                    <span className="navbar-toggler-icon"></span>
+                </button>
+                <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
+                    <div className="navbar-nav mx-auto">
+                        <Link className="nav-link active" href="/admin">Home</Link>
+                        <Link className="nav-link" href="/admin/about">About</Link>
+                        <Link className="nav-link" href="/admin/skills">Skills</Link>
+                        <Link className="nav-link" href="/admin/projects">Projects</Link>
+                        <Link className="nav-link" href="/admin/experience">Experience</Link>
+                        <Link className="nav-link" href="/admin/contact">Contact</Link>
+                        <Link className="nav-link" href="/admin/education">Education</Link>
+                        <Link className="nav-link" href="/admin/statistics">Statistics</Link>
+                    </div>
+                </div>
+
+                {
+                    admin && <div className="dropdown" data-bs-toggle="dropdown">
+                        <button className='btn btn-light'>welcome {admin.name}</button>
+                        <div className="dropdown-menu">
+                            <li className='dropdown-item'><Link className='nav-link' href="/admin/profile">Profile</Link></li>
+                            <li className='dropdown-item'><Link className='nav-link' href="/admin/setting">Setting</Link></li>
+                            <li className='dropdown-item'><button onClick={handleLogout} className='btn btn-link text-danger'>Logout</button></li>
+                        </div>
+                    </div>
+                }
+            </div>
+        </nav>
+    </>
+}
+
+export default AdminNavbar
