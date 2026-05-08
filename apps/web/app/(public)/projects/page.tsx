@@ -53,7 +53,7 @@ const Projects = () => {
             </div>
         </div>
 
-        <style jsx>{`
+        <style>{`
   @media (max-width: 768px) {
     .project-title {
       padding-top: 20px; 

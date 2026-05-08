@@ -63,7 +63,6 @@ export type SKILL_DELETE_REQUEST = { id: number }
 export type SKILL_DELETE_RESPONSE = { message: string }
 
 
-
 export type EXPERIENCE_CREATE_REQUEST = {
     company: string
     role: string

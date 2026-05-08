@@ -35,7 +35,7 @@ const Experience = () => {
 
         </div>
 
-        <style jsx>{`
+        <style>{`
       @media (max-width: 768px) {
         .hero-text {
             text-align: justify !important;

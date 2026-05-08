@@ -1,42 +1,3 @@
-// import { createSlice } from "@reduxjs/toolkit";
-// import { authApi } from "../apis/auth.api";
-// import { getStorage } from "../utils/authStorage";
-
-// type authType = {
-//     admin: {
-//         id: number,
-//         name: string,
-//         email: string,
-//         mobile: string,
-//         role: string
-//     } | null,
-// }
-
-// const initialState: authType = {
-//     admin: null
-// }
-
-// const authSlice = createSlice({
-//     name: "authSlice",
-//     initialState,
-//     reducers: {
-//         setAdmin: (state, action) => {
-//             state.admin = action.payload;
-//         }
-//     },
-//     extraReducers: builder => builder
-//         .addMatcher(authApi.endpoints.signin.matchFulfilled, (state, { payload }) => {
-//             state.admin = payload.result as authType["admin"]
-//         })
-//         .addMatcher(authApi.endpoints.signout.matchFulfilled, (state, { payload }) => {
-//             state.admin = null
-//         })
-// })
-
-// // export const {  } = authSlice.actions
-// export default authSlice.reducer
-
-
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { authApi } from "../apis/auth.api";
 
@@ -74,8 +35,5 @@ const authSlice = createSlice({
       }),
 });
 
-export const { setAdmin } = authSlice.actions; // ✅ IMPORTANT
+export const { setAdmin } = authSlice.actions; 
 export default authSlice.reducer;
-
-
-

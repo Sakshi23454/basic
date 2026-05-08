@@ -9,8 +9,8 @@
 -- SELECT * FROM profile;
 -- SELECT * FROM profile
 -- WHERE role = 'admin';
--- SELECT * FROM profile
--- WHERE role = 'user';
+SELECT * FROM profile
+WHERE role = 'user';
 
 -- UPDATE profile SET "name" = 'Sakshi Markal' WHERE role = 'user';
 

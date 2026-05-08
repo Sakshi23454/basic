@@ -42,7 +42,7 @@ const About = () => {
                         </div>
                         <div className="tab-pane fade" id="education">
                             {eduData?.result?.map((item: any) => (
-                                <div className="card shadow-sm mb-3" key={item.id}>
+                                <div className="card shadow-sm mb-3" key={`${item._id}-${item.degree}`}>
                                     <div className="card-body">
                                         <h5 className="fw-bold">
                                             <i className="bi bi-mortarboard me-2"></i>

@@ -98,7 +98,7 @@ const Contact = () => {
             </div>
         </div>
 
-        <style jsx>{`
+        <style>{`
       @media (max-width: 768px) {
         .hero-text {
             padding-top: 20px;         

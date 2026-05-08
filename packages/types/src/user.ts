@@ -60,7 +60,7 @@ export type PROFILE_GET_RESPONSE = {
         email: string
         mobile: string
         bio: string
-        ProfilePic?: string
+        profilePic?: string
         resume?: string
         github?: string
         linkedin?: string
