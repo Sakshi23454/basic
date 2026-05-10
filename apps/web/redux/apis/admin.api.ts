@@ -4,7 +4,9 @@ import { APP_URL } from "../../config/env"
 
 export const adminApi = createApi({
     reducerPath: "adminApi",
-    baseQuery: fetchBaseQuery({ baseUrl: `${APP_URL}/api/admin`, credentials: "include"  }),
+    // baseQuery: fetchBaseQuery({ baseUrl: `${APP_URL}/api/admin`, credentials: "include"  }),
+    baseQuery: fetchBaseQuery({ baseUrl: `/api/admin`, credentials: "include" }),
+
     tagTypes: ["project", "skill", "experience", "education", "profile", "resume", "stats"],
     endpoints: (builder) => {
         return {
