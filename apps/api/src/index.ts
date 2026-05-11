@@ -8,7 +8,7 @@ import { FRONTEND_URL, NODE_ENV, PRODUCTION } from "./config/env"
 const app = express()
 app.use(cookieParser())
 app.use(cors({
-    origin: FRONTEND_URL,
+    origin: FRONTEND_URL || "http://localhost:5000",
     credentials: true
 }
 ))
@@ -22,6 +22,6 @@ app.get("/", (req, res) => {
 const PORT = 5000
 // app.listen(PORT, () => { console.log(`Server running on port ${PORT}`) })
 
-if(NODE_ENV !== PRODUCTION){
+if (NODE_ENV !== PRODUCTION) {
     app.listen(PORT, () => { console.log(`Server running on port ${PORT}`) })
 }
