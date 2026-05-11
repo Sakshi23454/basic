@@ -1,3 +1,5 @@
+import dotev from "dotenv"
+dotev.config({ path: "./../../.env" })
 export const JWT_KEY = process.env.JWT_KEY as string
 export const PG_URL = process.env.PG_URL as string
 export const PORT = process.env.PORT as string
