@@ -10,7 +10,7 @@ const Home = () => {
     const { data: projectData } = useGetProjectsQuery()
     const { data: skillData } = useGetSkillsQuery()
 
-return <>
+    return <>
         <div className="container-fluid overflow-hidden" style={{ marginTop: "150px" }}>
 
             {/* Hero Section */}
@@ -52,10 +52,10 @@ return <>
                 </div>
 
                 <div className="col-md-6 text-center mt-4 mt-md-0 pe-md-5 pb-3 hero-image">
- 
-                    {data?.result?.ProfilePic && (
+
+                    {data?.result?.profilePic && (
                         <img
-                            src={data.result.ProfilePic}
+                            src={data.result.profilePic}
                             alt="profile"
                             className="img-fluid"
                             style={{
