@@ -25,6 +25,7 @@ const About = () => {
         linkedin: z.string().min(1).optional(),
         location: z.string().min(1).optional(),
         resume: z.string().min(1).optional(),
+        ProfilePic: z.string().min(1).optional(),
     }) satisfies z.ZodType<PROFILE_UPDATE_REQUEST>
 
     const { handleSubmit, register, reset, formState: { errors, touchedFields } } = useForm<PROFILE_UPDATE_REQUEST>({
@@ -38,6 +39,7 @@ const About = () => {
             linkedin: "",
             location: "",
             resume: "",
+            ProfilePic: "",
         },
         resolver: zodResolver(aboutSchema)
     })
@@ -47,7 +49,7 @@ const About = () => {
             if (selectedabout) {
                 await updateProfile({ ...data, id: selectedabout }).unwrap()
                 toast.success("profile update succefully")
-                reset({ name: "", title: "", email: "", mobile: "", bio: "", github: "", linkedin: "", location: "", resume: "" })
+                reset({ name: "", title: "", email: "", mobile: "", bio: "", github: "", linkedin: "", location: "", resume: "", ProfilePic: "" })
                 setselectedabout(null)
                 setShowForm(false)
             }
@@ -69,6 +71,7 @@ const About = () => {
             linkedin: data.linkedin,
             location: data.location,
             resume: data.resume,
+            ProfilePic: data.ProfilePic,
         })
     }
 
@@ -161,6 +164,14 @@ const About = () => {
                                     />
                                     <div className="invalid-feedback">{errors && errors.resume?.message}</div>
 
+                                    <input
+                                        {...register("ProfilePic")}
+                                        type="text"
+                                        placeholder="add/update ProfilePic"
+                                        className={handleClasses("ProfilePic")}
+                                    />
+                                    <div className="invalid-feedback">{errors && errors.ProfilePic?.message}</div>
+
                                     <button disabled={isLoading} type="submit" className="btn btn-warning w-100 mt-3">
                                         {isLoading
                                             ? <span className="spinner-border spinner-border-sm"></span>
@@ -190,6 +201,7 @@ const About = () => {
                                 <th>linkedin</th>
                                 <th>location</th>
                                 <th>resume</th>
+                                <th>ProfilePic</th>
                                 <th>actions</th>
                             </tr>
                         </thead>
@@ -206,6 +218,7 @@ const About = () => {
                                 <td>{data?.result?.linkedin}</td>
                                 <td>{data?.result?.location}</td>
                                 <td>{data?.result?.resume}</td>
+                                <td>{data?.result?.ProfilePic}</td>
                                 <td>
                                     <button
                                         onClick={() => {
