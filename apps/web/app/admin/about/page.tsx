@@ -279,8 +279,8 @@ const About = () => {
             // if (data.ProfilePic) {
             //     fd.append("ProfilePic", data.ProfilePic[0] as File)
             // }
-            if (data.ProfilePic?.[0]) {
-                fd.append("resume", data.ProfilePic[0])
+            if (data.profilePic?.[0]) {
+                fd.append("resume", data.profilePic[0])
             }
             await updateProfile({ fd, id: data?.id as number }).unwrap()
             toast.success("profile update success")
@@ -304,7 +304,7 @@ const About = () => {
             linkedin: data.linkedin,
             location: data.location,
             resume: data.resume,
-            ProfilePic: data.ProfilePic,
+            profilePic: data.profilePic,
         })
     }
 
@@ -421,14 +421,14 @@ const About = () => {
                                     </div>
 
                                     {
-                                        data && data.result?.ProfilePic && show
+                                        data && data.result?.profilePic && show
                                             ? <div className='flex gap-2 my-3'>
                                                 <label>Profile:</label>
-                                                <img height={100} width={100} src={data && data.result?.ProfilePic} alt="" />
+                                                <img height={100} width={100} src={data && data.result?.profilePic} alt="" />
                                                 <button onClick={() => setshow(false)} type="button" >Change Image</button>
                                             </div>
                                             : <div>
-                                                <input {...register("ProfilePic")} type="file" placeholder="add/update image" />
+                                                <input {...register("profilePic")} type="file" placeholder="add/update image" />
                                                 <button onClick={() => setshow(true)} type="button" >Cancel</button>
                                             </div>
                                     }
@@ -480,7 +480,7 @@ const About = () => {
                                 <td>{data?.result?.location}</td>
                                 <td>{data?.result?.resume}</td>
                                 <td>
-                                    <img height={100} width={100} src={data?.result?.ProfilePic} alt="profile" />
+                                    <img height={100} width={100} src={data?.result?.profilePic} alt="profile" />
                                 </td>
                                 <td>
                                     <button

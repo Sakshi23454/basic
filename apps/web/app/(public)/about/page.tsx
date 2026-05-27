@@ -11,9 +11,9 @@ const About = () => {
             <h2 className="text-center mb-5 fw-bold pt-4">About Me</h2>
             <div className="row">
                 <div className="col-md-5 text-center mb-4 pe-3">
-                    {data?.result?.ProfilePic && (
+                    {data?.result?.profilePic && (
                         <img
-                            src={data.result.ProfilePic}
+                            src={data.result.profilePic}
                             alt="profile"
                             className="img-fluid rounded shadow"
                             style={{ maxHeight: "420px", width: "100%", objectFit: "cover" }}

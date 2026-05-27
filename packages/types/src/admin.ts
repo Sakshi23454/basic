@@ -144,7 +144,7 @@ export type PROFILE_UPDATE_REQUEST = {
     mobile?: string
     github?: string
     linkedin?: string
-    ProfilePic?: string
+    profilePic?: string
     resume?: string
     bio?: string
     location?: string
@@ -161,7 +161,7 @@ export type PROFILE_READ_RESPONSE = {
         email: string
         mobile: string
         bio: string
-        ProfilePic?: string
+        profilePic?: string
         resume?: string
         github: string
         linkedin: string
