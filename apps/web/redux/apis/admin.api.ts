@@ -192,12 +192,23 @@ export const adminApi = createApi({
             }),
 
 
-            updateProfile: builder.mutation<PROFILE_UPDATE_RESPONSE, PROFILE_UPDATE_REQUEST>({
+            // updateProfile: builder.mutation<PROFILE_UPDATE_RESPONSE, PROFILE_UPDATE_REQUEST>({
+            //     query: userData => {
+            //         return {
+            //             url: "/update-profile/" + userData.id,
+            //             method: "PUT",
+            //             body: userData
+            //         }
+            //     },
+            //     invalidatesTags: ["profile"]
+            // }),
+
+            updateProfile: builder.mutation<PROFILE_UPDATE_RESPONSE, { id: number, fd: FormData }>({
                 query: userData => {
                     return {
                         url: "/update-profile/" + userData.id,
                         method: "PUT",
-                        body: userData
+                        body: userData.fd
                     }
                 },
                 invalidatesTags: ["profile"]

@@ -53,9 +53,9 @@ const Home = () => {
 
                 <div className="col-md-6 text-center mt-4 mt-md-0 pe-md-5 pb-3 hero-image">
 
-                    {data?.result?.profilePic && (
+                    {data?.result?.ProfilePic && (
                         <img
-                            src={data.result.profilePic}
+                            src={data.result.ProfilePic}
                             alt="profile"
                             className="img-fluid"
                             style={{
