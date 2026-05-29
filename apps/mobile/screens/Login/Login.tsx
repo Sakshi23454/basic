@@ -16,6 +16,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { useNavigation } from "@react-navigation/native";
 import { useSigninMutation } from "../../redux/apis/auth.api";
 import { AppNavigation } from "../../types/navigation";
+import { env } from "../../config";
 
 
 type SIGNIN_REQUEST = {
@@ -62,7 +63,7 @@ const Login = () => {
       navigation.navigate("dashboard");
     } catch (error) {
       console.log(error);
-      Alert.alert("Error", "Unable to login");
+      Alert.alert("Error", JSON.stringify(error));
     }
   };
 
@@ -70,7 +71,7 @@ const Login = () => {
     <View style={styles.container}>
       <View style={styles.card}>
         <Text style={styles.title}>Login</Text>
-
+        <Text>{env.APP_URL}</Text>
         <Controller
           control={control}
           name="email"

@@ -7,10 +7,10 @@
 -- WHERE table_schema = 'public';
 
 -- SELECT * FROM profile;
--- SELECT * FROM profile
--- WHERE role = 'admin';
 SELECT * FROM profile
-WHERE role = 'user';
+WHERE role = 'admin';
+-- SELECT * FROM profile
+-- WHERE role = 'user';
 
 -- UPDATE profile SET "name" = 'Sakshi Markal' WHERE role = 'user';
 
